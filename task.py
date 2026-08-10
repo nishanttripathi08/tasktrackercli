@@ -1,9 +1,13 @@
 from datetime import datetime
 
 class Task:
-    def __init__(self, description, id):
+    def __init__(self, description, IDnumber):
         self.description = description
-        self.id = id
+        self.IDnumber = IDnumber
         self.status = "todo"
-        self.createdAt = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        self.updatedAt = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.createdAt = self.createTimeStamp()
+        self.updatedAt = self.createTimeStamp()
+
+    @staticmethod
+    def createTimeStamp():
+        return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
